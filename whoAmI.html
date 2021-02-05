@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainLess Vs BrainDeath</title>
+</head>
+
+<body>
+    <h1 style="color:red">BrainLess Vs BrainDeath</h1>
+    <h2>Spectators for this battle</h2>
+    <ol id="Spectators"></ol>
+    <script>
+        fetch('https://randomuser.me/api/?results=666')
+            .then(response => response.json())
+            .then(data => whoAmI(data))
+        function whoAmI(data) {
+           console.log(data);
+           //console.log(data.results.length);
+            for (let i = 0; i < data.results.length; i++) {
+                const title = data.results[i].name.title;
+                const first = data.results[i].name.first;
+                const last = data.results[i].name.last;
+                const picture = data.results[i].picture.medium;
+                const country = data.results[i].location.country;
+                const fullName = `${title} ${first} ${last}`;
+               // console.log(fullName);
+                const list=document.getElementById('Spectators');
+                const listItem=document.createElement('li');
+                const image = document.createElement('img');
+                image.src=picture;
+
+                listItem.innerText=fullName+'\b'+'\t'+'Country:'+country;
+                list.appendChild(image);
+                list.appendChild(listItem);
+                //listItem.appendChild(country);
+            }
+
+
+        }
+    </script>
+
+</html>
