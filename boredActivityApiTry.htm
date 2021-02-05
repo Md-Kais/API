@@ -1,0 +1,45 @@
+<!-- url : http://www.boredapi.com/api/activity/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do something </title>
+</head>
+
+<body>
+    <h1>Hey Kais, Fuck the illusive world by doing this</h1>
+    <br>
+    <h2>Your task: </h2>
+
+    <h3 id="task" style="color: blue;"></h3>
+    <h4 id="type">Type:</h4>
+    <h4 id="participant">participant:</h4>
+    <small>after 4 second you have to do another task.</small>
+
+
+
+</body>
+<script>
+    function showTask(){
+    fetch('http://www.boredapi.com/api/activity/')
+        .then(response => response.json())
+        .then(data => {
+        const taskAdded = data.activity;
+        document.getElementById('task').innerText = taskAdded;
+        const typeAdded = data.type;
+        document.getElementById('type').innerText = 'Type: ' + typeAdded;
+        const participantAdded = data.participants;
+        document.getElementById('participant').innerText = 'Participant: ' + participantAdded;
+    })
+}
+showTask();
+    setInterval(() => {
+         showTask();
+    }, 7000);
+
+</script>
+
+</html>
