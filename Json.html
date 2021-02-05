@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+
+</head>
+
+<body>
+    <h1>JSON</h1>
+    <p>JSON: JavaScript Object Notation.
+        <br>
+        JSON is a syntax for storing and exchanging data.
+        <br>
+        JSON is text, written with JavaScript object notation.
+    </p>
+    <h1>exchanging data</h1>
+    <h3>sending->Recieving->storing</h3>
+    <h2>sending-data</h2>
+    <p>If you have data stored in a JavaScript object, you can convert the object into JSON, and send it to a server:
+        JSON.stringify()<br>
+        stringify make the object or any data type to text;
+
+    </p>
+    <script>
+        var myObj = { name: "John", age: 31, city: "New York" };
+        var myJSON = JSON.stringify(myObj);
+        console.log(myJSON);
+    </script>
+    <h2>recieving-data</h2>
+    <p>if you receive data in JSON format, you can convert it into a JavaScript object: JSON.parse()<br>
+
+        parse() make text to javascript object or any data type
+    </p>
+    <script>
+        var myJSON = '{"name":"John", "age":31, "city":"New York"}';
+        var myObj = JSON.parse(myJSON);
+        console.log(myObj);
+    </script>
+    <script>
+        // Storing data:
+        myObj = { name: "John", age: 31, city: "New York" };
+        myJSON = JSON.stringify(myObj);
+        console.log(myJSON);
+        localStorage.setItem("testJSON", myJSON);
+        // Retrieving data:
+        text = localStorage.getItem("testJSON");
+        obj = JSON.parse(text);
+        console.log(obj);
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+API-> Application Programming InterFace
+video link:
+https://www.youtube.com/watch?v=GZvSYJDk-us
+InterFace is GUI in website
+API is createed to help make your life easier by giving
+you to access the data and by providing you to 
+with abstaraction in impletation. APi load data from server.
+
+
+REST->R
